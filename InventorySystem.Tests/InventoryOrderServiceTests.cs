@@ -57,8 +57,16 @@ namespace InventorySystem.Tests
         }
 
         [Fact]
-        public void ProcessOrder_ZeroTax_ReturnsCorrectTotal()
+        public void ProcessOrder_ZeroTax_ReturnsRightTotal()
         {
+            //Arrange
+            InventoryOrderService orderservice = new InventoryOrderService();
+
+            Product product = new Product
+            {
+                Id = "P100",
+                Name = "Keyboard",
+            };
 
         }
     }
