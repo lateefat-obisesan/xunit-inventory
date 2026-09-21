@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="InventorySystem.Tests/InventorySystem.Tests.csproj" Id="c3bd108a-57f6-483a-80ea-85e2d18fe26f" />
+  <Project Path="InventorySystem/InventorySystem.csproj" />
+</Solution>
