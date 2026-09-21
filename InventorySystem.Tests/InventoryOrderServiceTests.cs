@@ -195,6 +195,19 @@ namespace InventorySystem.Tests
             Assert.False(result.IsSuccess);
             Assert.Equal("Quantity must be positive.", result.Message);
         }
+        [Fact]
+        public void AddProduct_NullProduct_ThrowsArgumentException()
+        {
+            //Arrange
+            InventoryOrderService orderService = new InventoryOrderService();
+
+            // Act & Assert
+            ArgumentException exception = Assert.Throws<ArgumentException>(
+                () => orderService.AddProduct(null)
+            );
+
+            Assert.Equal("Invalid product details.", exception.Message);
+        }
     }
 }
 
