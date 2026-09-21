@@ -55,6 +55,12 @@ namespace InventorySystem.Tests
             Assert.NotNull(updatedProduct);
             Assert.Equal(15, updatedProduct.StockQuantity);
         }
+
+        [Fact]
+        public void ProcessOrder_ZeroTax_ReturnsCorrectTotal()
+        {
+
+        }
     }
 }
 
