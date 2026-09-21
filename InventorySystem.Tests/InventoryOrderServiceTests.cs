@@ -29,6 +29,12 @@ namespace InventorySystem.Tests
             Assert.Equal(210.00m, result.TotalCost);
             Assert.Equal("Order processed successfully.", result.Message);
         }
+
+        [Fact]
+        public void ProcessOrder_ValidOrder_DeductsStock()
+        {
+            //Arrage
+        }
     }
 }
 
