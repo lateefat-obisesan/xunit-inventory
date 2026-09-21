@@ -45,7 +45,7 @@ namespace InventorySystem.Tests
             orderService.AddProduct(product);
 
             // Act
-           OrderResult result = orderService.ProcessOrder("P100", 5, 0.00m);
+            OrderResult result = orderService.ProcessOrder("P100", 5, 0.00m);
 
             // Assert
             Product updatedProduct = orderService.GetProduct("P100");
@@ -138,6 +138,19 @@ namespace InventorySystem.Tests
             // Assert
             Assert.False(result.IsSuccess);
             Assert.Equal("Quantity must be positive.", result.Message);
+        }
+        [Fact]
+        public void ProcessOrder_ProductDoesNotExist_ReturnsProductNotFound()
+        {
+            //Arrange
+            InventoryOrderService orderService = new InventoryOrderService();
+
+            //Act
+            OrderResult result = orderService.ProcessOrder("P999", 2, 0.05m);
+
+            //Assert
+            Assert.False(result.IsSuccess);
+            Assert.Equal("Product not found.", result.Message);
         }
     }
 }
