@@ -77,6 +77,11 @@ namespace InventorySystem.Tests
             // Assert
             Assert.Equal(100.00m, result.TotalCost);
         }
+        [Fact]
+        public void ProcessOrder_QuantityOf10_ReturnsCorrectTotal()
+        {
+            //Arrange
+        }
     }
 }
 
