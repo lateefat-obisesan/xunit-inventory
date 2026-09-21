@@ -60,14 +60,22 @@ namespace InventorySystem.Tests
         public void ProcessOrder_ZeroTax_ReturnsRightTotal()
         {
             //Arrange
-            InventoryOrderService orderservice = new InventoryOrderService();
+            InventoryOrderService orderService = new InventoryOrderService();
 
             Product product = new Product
             {
                 Id = "P100",
                 Name = "Keyboard",
+                UnitPrice = 50.00m,
+                StockQuantity = 20
             };
+            orderService.AddProduct(product);
 
+            // Act
+            OrderResult result = orderService.ProcessOrder("P100", 2, 0.00m);
+
+            // Assert
+            Assert.Equal(100.00m, result.TotalCost);
         }
     }
 }
