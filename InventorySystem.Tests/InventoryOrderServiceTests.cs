@@ -100,7 +100,22 @@ namespace InventorySystem.Tests
         public void ProcessOrder_QuantityOf50_Appilies20PercentDiscount()
         {
             //Arrange
+            InventoryOrderService orderService = new InventoryOrderService();
+            Product product = new Product
+            {
+                Id = "P100",
+                Name = "Keyboard",
+                UnitPrice = 100.00m,
+                StockQuantity = 60
+            };
 
+            orderService.AddProduct(product);
+
+            // Act
+            OrderResult result = orderService.ProcessOrder("P100", 50, 0.00m);
+
+            // Assert
+            Assert.Equal(4000.00m, result.TotalCost);
         }
     }
 }
