@@ -152,6 +152,11 @@ namespace InventorySystem.Tests
             Assert.False(result.IsSuccess);
             Assert.Equal("Product not found.", result.Message);
         }
+        [Fact]
+        public void ProcessOrder_QuantityExceedsStock_ReturnsInsufficientStock()
+        {
+
+        }
     }
 }
 
