@@ -96,6 +96,12 @@ namespace InventorySystem.Tests
             Assert.True(result.IsSuccess);
             Assert.Equal(900.00m, result.TotalCost);
         }
+        [Fact]
+        public void ProcessOrder_QuantityOf50_Appilies20PercentDiscount()
+        {
+            //Arrange
+
+        }
     }
 }
 
