@@ -10,7 +10,6 @@ namespace InventorySystem.Tests
         {
             // Arrange
             InventoryOrderService orderService = new InventoryOrderService();
-
             Product product = new Product
             {
                 Id = "P100",
@@ -35,7 +34,6 @@ namespace InventorySystem.Tests
         {
             //Arrange
             InventoryOrderService orderService = new InventoryOrderService();
-
             Product product = new Product
             {
                 Id = "P100",
@@ -61,7 +59,6 @@ namespace InventorySystem.Tests
         {
             //Arrange
             InventoryOrderService orderService = new InventoryOrderService();
-
             Product product = new Product
             {
                 Id = "P100",
@@ -81,6 +78,23 @@ namespace InventorySystem.Tests
         public void ProcessOrder_QuantityOf10_ReturnsCorrectTotal()
         {
             //Arrange
+            InventoryOrderService orderService = new InventoryOrderService();
+            Product product = new Product
+            {
+                Id = "P100",
+                Name = "Keyboard",
+                UnitPrice = 100.00m,
+                StockQuantity = 20
+            };
+
+            orderService.AddProduct(product);
+
+            // Act
+            OrderResult result = orderService.ProcessOrder("P100", 10, 0.00m);
+
+            // Assert
+            Assert.True(result.IsSuccess);
+            Assert.Equal(900.00m, result.TotalCost);
         }
     }
 }
