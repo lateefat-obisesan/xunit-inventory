@@ -208,6 +208,27 @@ namespace InventorySystem.Tests
 
             Assert.Equal("Invalid product details.", exception.Message);
         }
+        [Fact]
+        public void AddProduct_EmptyProductId_ThrowsArgumentException()
+        {
+            // Arrange
+            InventoryOrderService orderService = new InventoryOrderService();
+
+            Product product = new Product
+            {
+                Id = "",
+                Name = "Keyboard",
+                UnitPrice = 100.00m,
+                StockQuantity = 20
+            };
+
+            // Act & Assert
+            ArgumentException exception = Assert.Throws<ArgumentException>(
+                () => orderService.AddProduct(product)
+            );
+
+            Assert.Equal("Invalid product details.", exception.Message);
+        }
     }
 }
 
