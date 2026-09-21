@@ -33,7 +33,27 @@ namespace InventorySystem.Tests
         [Fact]
         public void ProcessOrder_ValidOrder_DeductsStock()
         {
-            //Arrage
+            //Arrange
+            InventoryOrderService orderService = new InventoryOrderService();
+
+            Product product = new Product
+            {
+                Id = "P100",
+                Name = "Keyboard",
+                UnitPrice = 100.00m,
+                StockQuantity = 20
+            };
+
+            orderService.AddProduct(product);
+
+            // Act
+           OrderResult result = orderService.ProcessOrder("P100", 5, 0.00m);
+
+            // Assert
+            Product updatedProduct = orderService.GetProduct("P100");
+
+            Assert.NotNull(updatedProduct);
+            Assert.Equal(15, updatedProduct.StockQuantity);
         }
     }
 }
